@@ -1,0 +1,15 @@
+@import "./layout.variables";
+
+:root {
+  --Header-height:                  60px;
+  --Header-logo-height:             30px;
+  --Header-logo-width:              132px;
+}
+
+.Header {
+  z-index: var(--zindex--header);
+
+  &-logo {
+    float: left;
+  }
+}

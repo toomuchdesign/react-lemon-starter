@@ -1,0 +1,19 @@
+:root {
+    --layout-border-color:                lightgrey;
+    --layout-global-bg-color:             #f9f8fb;
+
+    --page-max-width:                     1280px;
+    --page-min-width:                     320px;
+
+    --page-gutter:                         30px;
+    --page-gutter--md:                     60px;
+    --page-gutter--xl:                     90px;
+
+    /* =Z-index's
+----------------------------------------------- */
+    --zindex--modal:                      5000;
+    --zindex--overlay:                    4000;
+    --zindex--dropDown:                   3000;
+    --zindex--header:                     2000;
+    --zindex--footer:                     1000;
+}

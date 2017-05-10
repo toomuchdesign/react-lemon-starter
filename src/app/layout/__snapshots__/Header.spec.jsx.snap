@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header default output Should output with all attributes defined 1`] = `
+<div
+  className="Header"
+>
+  <div
+    className="Header-container"
+  >
+    <div
+      className="Header-logo"
+    >
+      <Link
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/"
+      >
+        <img
+          alt="Logo"
+          className="Header-logo-img"
+          src={Object {}}
+        />
+      </Link>
+    </div>
+    <div
+      className="Header-nav"
+    >
+      <ul
+        className="Header-menu"
+      >
+        <li
+          className="Header-item"
+        >
+          <Link
+            onlyActiveOnIndex={false}
+            style={Object {}}
+            to={
+              Object {
+                "name": "about",
+                "params": Object {
+                  "foo": "bar",
+                },
+              }
+            }
+          >
+            to about params
+          </Link>
+        </li>
+        <li
+          className="Header-item"
+        >
+          <Link
+            onlyActiveOnIndex={false}
+            style={Object {}}
+            to={
+              Object {
+                "name": "about",
+                "query": Object {
+                  "foo": "bar",
+                },
+              }
+            }
+          >
+            to about query
+          </Link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

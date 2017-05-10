@@ -1,0 +1,25 @@
+# OS generated files
+.*
+*.db
+supervisord.*
+
+/node_modules
+/dist
+/build
+/tmp
+/stats
+/bower_components
+*.sublime-project
+*.sublime-workspace
+*.log
+
+# Trailing dotted files
+!.gitignore
+!.babelrc
+!.eslintignore
+!.eslintrc
+!.editorconfig
+!.flowconfig
+!.jscsrc
+!.jshintrc
+!.postcssrc.js

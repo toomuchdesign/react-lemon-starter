@@ -22,7 +22,6 @@ module.exports = (env) => {
                   sourceMap: true,
                   modules: false,
                   localIdentName: '[local]-[hash:base62:8]',
-                  minimize: false,
                   import: false,
                 },
               },

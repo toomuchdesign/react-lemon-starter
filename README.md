@@ -77,7 +77,7 @@ Currently you can choose between:
 - **serving** it in browser and watch for changes with `npm run serve` or `npm run serve:build`
 - **build some nice webpack statistics** with `npm run stats:serve`. [Read more here](https://github.com/th0r/webpack-bundle-analyzer).
 
-Both `build` and `serve` command accept an optional `-- --env.extractcss` argument wich enable **CSS extraction into a real file**.
+Both `build` and `serve` command accept an optional `-- --env.extractcss` argument which enables **CSS extraction into a real file**.
 
 ## Tests
 **Unit tests** currently relies on:

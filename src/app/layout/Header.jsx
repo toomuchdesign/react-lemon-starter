@@ -11,7 +11,7 @@ const headerMenuItems = [
 export default function Header() {
   return (
     <div className="Header">
-      <div className="Header-container">
+      <div className="Header-inner">
         <div className="Header-logo">
           <Link
             to="/"

@@ -8,7 +8,7 @@ import UserActionCreators from 'app/user/actions';
 // Selectors
 import { getAuthData } from 'app/authData/selectors';
 
-import MainLayout from 'app/layout/MainLayout';
+import Page from 'app/layout/Page';
 
 /**
  * This is the main App component
@@ -24,9 +24,9 @@ class App extends Component {
 
   render() {
     return (
-      <MainLayout>
+      <Page>
         {this.props.children}
-      </MainLayout>
+      </Page>
     );
   }
 }

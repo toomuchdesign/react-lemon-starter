@@ -2,6 +2,7 @@ function getPostCSSPlugins() {
   return [
     require('postcss-smart-import')(),
     require('postcss-nested')(),
+    require('postcss-custom-media')(),
     require('postcss-calc')(),
     require('postcss-color-function')(),
     require('postcss-custom-properties')(),

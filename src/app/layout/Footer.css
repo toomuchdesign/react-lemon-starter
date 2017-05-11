@@ -1,18 +1,9 @@
 @import "./layout.variables";
 
-:root {
-  --Footer-height:                      100px;
-  --Footer-content-height:              50px;
-}
-
 .Footer {
   background: #111;
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: var(--zindex--footer);
-
-  &-x {
-    color: blue;
-  }
 }

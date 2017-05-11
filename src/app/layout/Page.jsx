@@ -4,17 +4,19 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Footer from './Footer';
 
-export default function MainLayout(props) {
+import './Page.css';
+
+export default function Page(props) {
   return (
-    <div className="l-page">
+    <div className="Page">
       <Header />
-      <div className="l-page-inner">
+      <div className="Page-inner">
         {React.Children.map(props.children, (child, index) => (
           <div
-            key={`MainLayout-item-${index}`}
-            className="l-page-block"
+            key={`Page-item-${index}`}
+            className="Page-block"
           >
-            <div className="l-page-container">
+            <div className="Page-container">
               {child}
             </div>
           </div>
@@ -25,8 +27,8 @@ export default function MainLayout(props) {
   );
 }
 
-MainLayout.displayName = 'MainLayout';
+Page.displayName = 'Page';
 
-MainLayout.propTypes = {
+Page.propTypes = {
   children: PropTypes.node,
 };

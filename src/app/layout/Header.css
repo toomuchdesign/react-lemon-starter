@@ -1,15 +1,6 @@
 @import "./layout.variables";
 
-:root {
-  --Header-height:                  60px;
-  --Header-logo-height:             40px;
-  --Header-logo-width:              40px;
-}
-
 .Header {
-  position: fixed;
-  left: 0;
-  top: 0;
   width: 100%;
   height: var(--Header-height);
 
@@ -18,7 +9,13 @@
   background: #2d3e50;
   color: #fff;
 
-  &-container {
+  @media (--lg) {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+
+  &-inner {
     height: var(--Header-height);
     margin: 0 auto;
     padding: 0 25px;

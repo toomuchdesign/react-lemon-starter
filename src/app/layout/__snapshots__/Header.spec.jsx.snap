@@ -5,7 +5,7 @@ exports[`Header default output Should output with all attributes defined 1`] = `
   className="Header"
 >
   <div
-    className="Header-container"
+    className="Header-inner"
   >
     <div
       className="Header-logo"
@@ -26,12 +26,13 @@ exports[`Header default output Should output with all attributes defined 1`] = `
       className="Header-nav"
     >
       <ul
-        className="Header-menu"
+        className="Header-nav-list"
       >
         <li
-          className="Header-item"
+          className="Header-nav-item"
         >
           <Link
+            className="Header-nav-link"
             onlyActiveOnIndex={false}
             style={Object {}}
             to={
@@ -47,9 +48,10 @@ exports[`Header default output Should output with all attributes defined 1`] = `
           </Link>
         </li>
         <li
-          className="Header-item"
+          className="Header-nav-item"
         >
           <Link
+            className="Header-nav-link"
             onlyActiveOnIndex={false}
             style={Object {}}
             to={

@@ -1,5 +1,7 @@
 # React lemon starter 🍋
 
+A personal collection of React bad/best practices.
+
 ```
                        .-.
                       /  .\
@@ -32,23 +34,28 @@ http://ascii.co.uk/art/lemon
 
 React lemon starter requires [NodeJS](https://nodejs.org) and [NPM](https://www.npmjs.com) installed on your machine.
 
-### How to set up the project
-
-#### If setting up the project on a server
+### If setting up the project on a server
 ```sh
 # Automatically install NPM dependencies (in production mode)
 npm run setup
 ```
 
-#### If your are a developer
+### If your are a developer
 ```sh
 # Use NPM install/update methods
 npm update && npm install
 ```
 
-Edit your host file and map your `localhost` to `lemon.loc` to be ready to serve the project.
+## Run the project
+Currently you can choose between:
 
-### Set up environment variables
+- **building** the application with `npm run build`
+- **serving** it in browser and watch for changes with `npm run serve` or `npm run serve:build`
+- **build some nice webpack statistics** with `npm run stats:serve`. [Read more here](https://github.com/th0r/webpack-bundle-analyzer).
+
+Both `build` and `serve` command accept an optional `-- --env.extractcss` argument which enables **CSS extraction into a real file**.
+
+### Environment variables
 
 **Before firing any build/serve task**, you have to **choose which environment** you're going to deploy.
 
@@ -62,7 +69,7 @@ npm run prod
 
 The project might need to change/add some environment variable. You can easily do so by editing `generate-envfile.js` file.
 
-#### A note about NODE_ENV var
+### A note about NODE_ENV var
 **NODE_ENV** var is an environment variable which usually has special meanings inside plugins/libraries.
 
 This is why **NODE_ENV** is directly set into webpack configuration.
@@ -70,18 +77,14 @@ This is why **NODE_ENV** is directly set into webpack configuration.
 - **webpack.config.local:** NODE_ENV = development
 - **webpack.config.publish:** NODE_ENV = production
 
-### Run the project
-Currently you can choose between:
-
-- **building** the application with `npm run build`
-- **serving** it in browser and watch for changes with `npm run serve` or `npm run serve:build`
-- **build some nice webpack statistics** with `npm run stats:serve`. [Read more here](https://github.com/th0r/webpack-bundle-analyzer).
-
-Both `build` and `serve` command accept an optional `-- --env.extractcss` argument which enables **CSS extraction into a real file**.
+### Dev server with custom url
+If you need the dev server to serve the project on a custom url (eg. `www.lemon.loc`), do the following:
+- Set `customLocalHost` variable to `www.lemon.loc` in `src/tools/webpack/webpack.config.server`
+- Edit your host file and map your `localhost` to `lemon.loc`.
 
 ## Tests
 **Unit tests** currently relies on:
-- [Jest + snapshots](https://facebook.github.io/jest)
+- [Jest](https://facebook.github.io/jest)
 - [Enzyme](https://github.com/airbnb/enzyme)
 - [react-element-to-jsx-string](https://github.com/algolia/react-element-to-jsx-string)
 
@@ -142,6 +145,9 @@ The application is ready to nicely interact with:
 
 Install them on your browser (completely optional).
 
+### Hot modules replacement
+**[React's Hot loader](https://gaearon.github.io/react-hot-loader/)** is kept separated from production environment (please note that It's a dev dependency) by requiring it just in a dedicated application entrypoint (index.local.jsx) which is used only in development mode.
+
 ## Project structure
 Currently the project is organized by grouping files **by feature**: all files related to one feature are inside the same folder.
 
@@ -150,10 +156,7 @@ Currently the project is organized by grouping files **by feature**: all files r
 - Ducks: https://github.com/erikras/ducks-modular-redux
 - https://medium.freecodecamp.com/scaling-your-redux-app-with-ducks-6115955638be#.t3y698fgl
 
-### Hot modules replacement
-**[React's Hot loader](https://gaearon.github.io/react-hot-loader/)** is kept separated from production environment (please note that It's a dev dependency) by requiring it just in a dedicated application entrypoint (index.local.jsx) which is used only in development mode.
-
-## Alternative libraries
+## Useful libraries
 
 ### Portals/gateways
 - [react-gateway](https://www.npmjs.com/package/react-gateway)

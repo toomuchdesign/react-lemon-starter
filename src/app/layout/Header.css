@@ -2,14 +2,65 @@
 
 :root {
   --Header-height:                  60px;
-  --Header-logo-height:             30px;
-  --Header-logo-width:              132px;
+  --Header-logo-height:             40px;
+  --Header-logo-width:              40px;
 }
 
 .Header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--Header-height);
+
   z-index: var(--zindex--header);
+  text-align: left;
+  background: #2d3e50;
+  color: #fff;
+
+  &-container {
+    height: var(--Header-height);
+    margin: 0 auto;
+    padding: 0 25px;
+    position: relative;
+  }
 
   &-logo {
+    height: var(--Header-logo-height);
+    width: var(--Header-logo-width);
+    overflow: hidden;
     float: left;
+    margin: calc( calc( var(--Header-height) - var(--Header-logo-height) ) / 2 ) 0;
+
+    >a {
+      display: block;
+    }
+
+    &-img {
+      width: 100%;
+    }
+  }
+
+  &-nav {
+    float: right;
+
+    &-list {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+    }
+
+    &-item {
+      display: inline-block;
+      zoom: 1;
+      vertical-align: middle;
+    }
+
+    &-link {
+      line-height: var(--Header-height);
+      text-decoration: none;
+      color: #fff;
+      padding: .5em 1em;
+    }
   }
 }

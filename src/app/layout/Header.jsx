@@ -24,14 +24,15 @@ export default function Header() {
           </Link>
         </div>
         <div className="Header-nav">
-          <ul className="Header-menu">
+          <ul className="Header-nav-list">
             {headerMenuItems.map((item, index) => (
               <li
-                className="Header-item"
+                className="Header-nav-item"
                 key={index}
               >
                 <Link
                   to={item[0]}
+                  className="Header-nav-link"
                 >
                   {item[1]}
                 </Link>

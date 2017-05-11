@@ -127,6 +127,7 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
+    "sanitize.css": "^5.0.0",
     "style-loader": "^0.13.1",
     "url-constructor": "^1.0.0",
     "url-loader": "^0.5.7",

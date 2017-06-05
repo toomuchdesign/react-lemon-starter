@@ -4,7 +4,7 @@ import { Route } from 'react-router';
 import AuthDataProvider from 'app/authData/components/AuthDataProvider';
 import AppContainer from 'app/core/components/App';
 
-import HomePage from 'app/homepage/pages/HomePage';
+import LemonsPage from 'app/lemons/pages/LemonsPage';
 
 import AboutPage from 'app/about/pages/AboutPage';
 import NotFoundPage from 'app/core/pages/NotFoundPage';
@@ -23,7 +23,7 @@ const routesObj = {
     component: props => (
       <AuthDataProvider>
         <AppContainer {...props}>
-          <HomePage {...props} />
+          <LemonsPage {...props} />
         </AppContainer>
       </AuthDataProvider>
     ),

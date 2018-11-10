@@ -6,6 +6,7 @@ supervisord.*
 /node_modules
 /dist
 /build
+/build_server
 /tmp
 /stats
 /bower_components

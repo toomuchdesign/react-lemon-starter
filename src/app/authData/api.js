@@ -1,4 +1,4 @@
-import apiFetch from 'app/lib/apiFetch';
+import apiFetch from '../lib/apiFetch';
 
 const API = {
   fetchAuth(token) {

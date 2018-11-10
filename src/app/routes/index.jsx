@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-import AuthDataProvider from 'app/authData/components/AuthDataProvider';
-import AppContainer from 'app/core/components/App';
+import AuthDataProvider from '../authData/components/AuthDataProvider';
+import AppContainer from '../core/components/App';
 
-import LemonsPage from 'app/lemons/pages/LemonsPage';
+import LemonsPage from '../lemons/pages/LemonsPage';
 
-import AboutPage from 'app/about/pages/AboutPage';
-import NotFoundPage from 'app/core/pages/NotFoundPage';
-import LogoutPage from 'app/core/pages/LogoutPage';
+import AboutPage from '../about/pages/AboutPage';
+import NotFoundPage from '../core/pages/NotFoundPage';
+import LogoutPage from '../core/pages/LogoutPage';
 
 const siteTitle = 'React lemon starter';
 const routesObj = {

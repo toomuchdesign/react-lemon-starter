@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import authDataReducer, { stateName as authDataName } from 'app/authData';
-import userReducer, { stateName as userName } from 'app/user';
-import lemonsReducer, { stateName as lemonsName } from 'app/lemons';
+import authDataReducer, { stateName as authDataName } from '../authData';
+import userReducer, { stateName as userName } from '../user';
+import lemonsReducer, { stateName as lemonsName } from '../lemons';
 
 const rootReducer = combineReducers({
   [authDataName]: authDataReducer,

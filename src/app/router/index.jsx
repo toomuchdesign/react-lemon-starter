@@ -4,7 +4,7 @@ import { Router, useRouterHistory, createMemoryHistory } from 'react-router';
 import useNamedRoutes from 'use-named-routes';
 import { syncHistoryWithStore } from 'react-router-redux';
 import createHistory from 'history/lib/createBrowserHistory';
-import isBrowser from 'app/lib/isBrowser';
+import isBrowser from '../lib/isBrowser';
 
 /*
  * Set up application router with:

@@ -66,7 +66,6 @@ const webpackBaseConfig = {
   ],
   // https://github.com/webpack/webpack.js.org/issues/68#issuecomment-240510801
   resolve: {
-    modules: [PATHS.SRC, 'node_modules'],
     extensions: ['.js', '.jsx', '.json'],
   },
   stats: {

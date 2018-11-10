@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // Actions
-import UserActionCreators from 'app/user/actions';
+import UserActionCreators from '../../user/actions';
 
 // Selectors
-import { getAuthData } from 'app/authData/selectors';
+import { getAuthData } from '../../authData/selectors';
 
-import Page from 'app/layout/Page';
+import Page from '../../layout/Page';
 
 /**
  * This is the main App component

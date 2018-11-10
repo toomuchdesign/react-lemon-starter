@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getUser } from 'app/user/selectors';
+import { getUser } from '../../user/selectors';
 import { getLemons } from '../selectors';
 import LemonsActionCreators from '../actions';
 import LemonsCounter from '../components/LemonsCounter';

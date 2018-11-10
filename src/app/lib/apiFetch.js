@@ -1,6 +1,6 @@
 import urlConstructor from 'url-constructor';
-import store from 'app/store';
-import { getAuthData } from 'app/authData/selectors';
+import store from '../store';
+import { getAuthData } from '../authData/selectors';
 
 /**
  * @param  {Object} args                        The configuration object for requested API call

@@ -11,7 +11,13 @@
   "scripts": {
     "dev": "node generate-envfile.js dev",
     "prod": "node generate-envfile.js prod",
-    "build": "webpack --config ./tools/webpack/webpack.config.publish.js",
+    "clean": "rm -rf build && rm -rf build_server",
+    "": "rm -rf build && rm -rf build_server",
+    "build": "npm run clean && npm run build:app && npm run build:server",
+    "build:app": "webpack --config ./tools/webpack/webpack.config.publish.js",
+    "build:server": "npm run build:server:app && npm run build:server:ssr && rm -rf build/index.html",
+    "build:server:app": "BABEL_ENV=node babel src --out-dir build_server/src",
+    "build:server:ssr": "BABEL_ENV=node babel server --out-dir build_server/server",
     "flow": "flow",
     "lint": "eslint . --ext .js --ext .jsx --ignore-path .eslintignore --cache",
     "preversion": "npm test",
@@ -24,6 +30,8 @@
     "stats:serve": "npm run stats:build && webpack-bundle-analyzer ./.stats.json ./build",
     "stats:help": "webpack-bundle-analyzer --help",
     "start": "npm run serve:local",
+    "start:server": "npm run build:server:ssr && node build_server/server",
+    "start:server:watch": "nodemon -e js,jsx --watch src --watch server --exec \"npm run start:server\"",
     "serve:local": "webpack-dev-server --config ./tools/webpack/webpack.config.server.js --env.mode local",
     "serve:build": "webpack-dev-server --config ./tools/webpack/webpack.config.server.js --env.mode publish",
     "setup": "npm run setup:npm",
@@ -67,6 +75,11 @@
     ],
     "snapshotSerializers": [
       "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/build",
+      "<rootDir>/build_server"
     ]
   },
   "devDependencies": {
@@ -84,6 +97,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jest": "^19.0.2",
     "nock": "^9.0.2",
+    "nodemon": "^1.18.6",
     "pre-commit": "^1.1.3",
     "react-element-to-jsx-string": "^5.0.2",
     "react-hot-loader": "^3.0.0-beta.6",
@@ -95,6 +109,7 @@
   },
   "dependencies": {
     "autoprefixer": "^7.0.1",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
     "babel-plugin-transform-react-remove-prop-types": "^0.3.2",
@@ -104,6 +119,7 @@
     "classnames": "^2.2.5",
     "core-js": "^2.4.1",
     "css-loader": "^0.25.0",
+    "express": "^4.16.4",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.9.0",
     "history": "^3.2.1",

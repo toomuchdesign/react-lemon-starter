@@ -12,7 +12,7 @@ const loggerMiddleware = store => next => (action) => { // eslint-disable-line n
 
 // Scroll to top when a "location change" action is fired
 const scrollToTopOnLocationChange = () => next => (action) => {
-  if (action.type === '@@router/LOCATION_CHANGE' && window) {
+  if (action.type === '@@router/LOCATION_CHANGE' && typeof window !== 'undefined') {
     // @IDEA Make a smooth scroll
     window.scrollTo(0, 0);
   }
@@ -24,7 +24,7 @@ const scrollToTopOnLocationChange = () => next => (action) => {
  * https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
  */
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers = process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+const composeEnhancers = process.env.NODE_ENV !== 'production' && typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
   : compose;
 /* eslint-enable */

@@ -1,11 +1,7 @@
-const React = require('react');
+import React from 'react';
 
 function Test() {
-  return (
-    // React.createElement('div', null, 'Lorem test')
-    <div>lorem</div>
-  );
+  return <div>lorem</div>;
 }
 
-module.exports = Test;
-
+export default Test;

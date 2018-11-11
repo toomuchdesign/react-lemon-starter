@@ -6,14 +6,18 @@ import { withRouter } from 'react-router';
 // Actions
 import AuthActionCreators from '../actions';
 // Selectors
-import { getAuthData } from '../selectors';
+import { getAuthData, isAuthDataFetched } from '../selectors';
 
 class AuthDataProviderWrapper extends Component {
-
-  componentWillMount() {
+  componentDidMount() {
     if (process.env.SKIP_AUTH_CHECK === 'true') {
       return;
     }
+
+    if (this.props.isAuthDataFetched) {
+      return;
+    }
+
     this.redirectToLogoutIfAuthIsInvalid(this.props.authData);
     this.props.fetchAuthData();
   }
@@ -54,6 +58,7 @@ AuthDataProviderWrapper.propTypes = {
     PropTypes.bool,
     PropTypes.object,
   ]),
+  isAuthDataFetched: PropTypes.bool,
   children: PropTypes.node,
   fetchAuthData: PropTypes.func.isRequired,
   router: PropTypes.shape({
@@ -61,8 +66,13 @@ AuthDataProviderWrapper.propTypes = {
   }),
 };
 
+AuthDataProviderWrapper.defaultProps = {
+  isAuthDataFetched: false,
+};
+
 const mapStateToProps = state => ({
   authData: getAuthData(state),
+  isAuthDataFetched: isAuthDataFetched(state),
 });
 
 const mapDispatchToProps = dispatch => ({

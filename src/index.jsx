@@ -6,7 +6,7 @@ import loadPolyfillsAndThen from './loadPolyfills';
 loadPolyfillsAndThen(() => {
   const rootEl = document.getElementById('root');
 
-  ReactDOM.render(
+  ReactDOM.hydrate(
     <Root />,
     rootEl,
   );

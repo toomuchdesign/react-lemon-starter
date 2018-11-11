@@ -17,7 +17,6 @@ const UserActionCreators = {
         );
     };
   },
-
 };
 
 export default UserActionCreators;

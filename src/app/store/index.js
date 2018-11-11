@@ -2,14 +2,6 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from '../reducers';
 
-// Custom store dispatcher middleware: logger
-const loggerMiddleware = store => next => (action) => { // eslint-disable-line no-unused-vars
-  if (process.env.NODE_ENV !== 'production' && typeof action !== 'function') {
-    console.log(`Dispatching ${action.type}`, action);
-  }
-  return next(action);
-};
-
 // Scroll to top when a "location change" action is fired
 const scrollToTopOnLocationChange = () => next => (action) => {
   if (action.type === '@@router/LOCATION_CHANGE' && typeof window !== 'undefined') {
@@ -18,6 +10,16 @@ const scrollToTopOnLocationChange = () => next => (action) => {
   }
   return next(action);
 };
+
+let preloadedState;
+
+if (typeof window !== 'undefined' && window.__PRELOADED_STATE__) {
+  // Grab the state from a global variable injected into the server-generated HTML
+  preloadedState = window.__PRELOADED_STATE__;
+
+  // Allow the passed state to be garbage-collected
+  delete window.__PRELOADED_STATE__;
+}
 
 /*
  * Connect store with "Redux DevTools Extension" browser tool
@@ -29,15 +31,18 @@ const composeEnhancers = process.env.NODE_ENV !== 'production' && typeof window 
   : compose;
 /* eslint-enable */
 
-const store = createStore(
-  reducers,
-  composeEnhancers(
-    applyMiddleware(
-      loggerMiddleware,
-      scrollToTopOnLocationChange,
-      thunk,
+function makeStore() {
+  return createStore(
+    reducers,
+    preloadedState,
+    composeEnhancers(
+      applyMiddleware(
+        scrollToTopOnLocationChange,
+        thunk,
+      ),
     ),
-  ),
-);
+  );
+}
 
-export default store;
+export default makeStore();
+export { makeStore }

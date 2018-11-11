@@ -19,13 +19,14 @@ beforeEach(() => {
 
 describe('AuthDataProvider component', () => {
   it('Should call "fetchAuthData" on mounting phase', () => {
-    shallow(
+    const wrapper = shallow(
       <AuthDataProviderWrapper
         authData={authMock}
         fetchAuthData={fetchAuthDataMock}
       />
     );
 
+    wrapper.instance().componentDidMount();
     expect(fetchAuthDataMock.mock.calls.length).toEqual(1);
   });
 

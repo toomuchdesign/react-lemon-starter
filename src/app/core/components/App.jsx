@@ -7,6 +7,7 @@ import UserActionCreators from '../../user/actions';
 
 // Selectors
 import { getAuthData } from '../../authData/selectors';
+import { isUserFetched } from '../../user/selectors';
 
 import Page from '../../layout/Page';
 
@@ -18,6 +19,9 @@ import Page from '../../layout/Page';
 class App extends Component {
 
   componentDidMount() {
+    if (this.props.isUserFetched) {
+      return;
+    }
     // Get current user data
     this.props.fetchUser(this.props.authData.userId);
   }
@@ -37,10 +41,16 @@ App.propTypes = {
   authData: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   children: PropTypes.node,
   fetchUser: PropTypes.func,
+  isUserFetched: PropTypes.bool,
+};
+
+App.defaultProps = {
+  isUserFetched: false,
 };
 
 const mapStateToProps = state => ({
   authData: getAuthData(state),
+  isUserFetched: isUserFetched(state),
 });
 
 const mapDispatchToProps = dispatch => ({

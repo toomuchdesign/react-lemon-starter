@@ -1,8 +1,13 @@
-const path = require('path');
+require('isomorphic-fetch');
 const React = require('react');
 const express = require('express');
 const ReactDOMServer = require('react-dom/server');
-const Test = require('./test.js');
+
+import Root from '../src/app/Root';
+import { makeStore } from '../src/app/store';
+import authDataActionCreators from '../src/app/authData/actions';
+import userActionCreators from '../src/app/user/actions';
+import { getAuthData } from '../src/app/authData/selectors';
 const generateIndex = require('./generateIndex.js');
 
 const app = express();
@@ -12,15 +17,27 @@ const port = 3000;
 app.use(express.static('build', {
   index: false,
 }));
-// app.use('/build', express.static('build'))
 
 function handleRender(req, res) {
-  const prerenderedHtml = ReactDOMServer.renderToString(<Test />);
-  const html = generateIndex(prerenderedHtml, {});
-  res.send(html);
-  // res.sendfile('./build/index.html', { root: process.cwd() });
+  // Grab the initial state from our Redux store
+  const store = makeStore();
+
+  authDataActionCreators.fetchAuth()(store.dispatch)
+  .then(
+    () => {
+      const authData = getAuthData(store.getState());
+      return userActionCreators.fetchUser(authData.userId)(store.dispatch);
+    },
+  )
+  .then(
+    () => {
+      const prerenderedHtml = ReactDOMServer.renderToString(<Root store={store} />);
+      const preloadedState = store.getState();
+      const html = generateIndex(prerenderedHtml, preloadedState);
+      res.send(html);
+    },
+  );
 }
 
 app.use(handleRender);
-
-app.listen(port, () => console.log(`Example aspp listening on port ${port}!`));
+app.listen(port, () => console.log(`App listening on port ${port}!`));

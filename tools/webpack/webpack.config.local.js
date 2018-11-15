@@ -9,7 +9,7 @@ module.exports = env => (
   merge.smart(webpackBaseConfig(env), {
     entry: {
       app: [
-        path.join(PATHS.SRC, 'index.local.jsx'),
+        path.join(PATHS.SRC, 'index.local.js'),
       ],
     },
     plugins: [

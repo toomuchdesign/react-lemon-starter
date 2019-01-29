@@ -9,7 +9,7 @@ const webpackBaseConfig = {
   output: {
     path: PATHS.BUILD,
     filename: '[name].js',
-    publicPath: '/',
+    publicPath: 'po/',
   },
   module: {
     rules: [{

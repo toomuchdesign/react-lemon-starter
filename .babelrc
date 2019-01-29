@@ -21,13 +21,6 @@
         "es2015",
         "stage-3",
         "react"
-      ],
-      "plugins": [
-        "css-modules-transform",
-        "inline-react-svg",
-        ["inline-dotenv", {
-          "path": ".env"
-        }]
       ]
     }
   }

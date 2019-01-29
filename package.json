@@ -15,7 +15,8 @@
     "build": "npm run clean && npm run build:app && npm run build:server",
     "build:app": "webpack --config ./tools/webpack/webpack.config.local.js",
     "build:server": "npm run build:server:app && npm run build:server:ssr && rm -rf build/index.html",
-    "build:server:app": "BABEL_ENV=node babel src --out-dir build_server/src",
+    "build:server:app": "BABEL_ENV=node webpack --config ./tools/webpack/webpack.config.ssr.js",
+    "build:server:app:old": "BABEL_ENV=node babel src --out-dir build_server/src",
     "build:server:ssr": "BABEL_ENV=node babel server --out-dir build_server/server",
     "flow": "flow",
     "lint": "eslint . --ext .js --ext .jsx --ignore-path .eslintignore --cache",
@@ -106,6 +107,7 @@
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.0.0",
+    "webpack-emit-all-plugin": "^2.0.1",
     "webpack-hot-middleware": "^2.13.1"
   },
   "dependencies": {
@@ -156,7 +158,6 @@
     "webpack": "^4.0.0",
     "webpack-dotenv-plugin": "^2.0.0",
     "webpack-merge": "^4.0.0",
-    "webpack-emit-all-plugin": "^2.0.1",
     "whatwg-fetch": "^2.0.1"
   }
 }

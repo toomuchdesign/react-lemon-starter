@@ -1,3 +1,4 @@
+import fetch from 'cross-fetch';
 import urlConstructor from 'url-constructor';
 import store from '../store';
 import { getAuthData } from '../authData/selectors';

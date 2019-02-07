@@ -1,5 +1,3 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DotenvPlugin = require('webpack-dotenv-plugin');
 const PATHS = require('../paths');
 const merge = require('webpack-merge');
@@ -9,7 +7,7 @@ const webpackBaseConfig = {
   output: {
     path: PATHS.BUILD,
     filename: '[name].js',
-    publicPath: 'po/',
+    publicPath: '/',
   },
   module: {
     rules: [{
@@ -51,12 +49,6 @@ const webpackBaseConfig = {
     }],
   },
   plugins: [
-    // WEBPACK HTML PLUGIN
-    // Use a custom html file as entrypoint
-    new HtmlWebpackPlugin({
-      template: path.join(PATHS.SRC, 'index.html'),
-      inject: 'body',
-    }),
     // WEBPACK DOTENV PLUGIN
     // Inject .env file variables into current session
     new DotenvPlugin({

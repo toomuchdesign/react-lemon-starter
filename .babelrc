@@ -15,13 +15,6 @@
     },
     "test": {
       "plugins": ["transform-es2015-modules-commonjs"]
-    },
-    "node": {
-      "presets": [
-        "es2015",
-        "stage-3",
-        "react"
-      ]
     }
   }
 }

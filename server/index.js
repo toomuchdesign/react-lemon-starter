@@ -1,4 +1,3 @@
-require('isomorphic-fetch');
 const React = require('react');
 const express = require('express');
 const ReactDOMServer = require('react-dom/server');

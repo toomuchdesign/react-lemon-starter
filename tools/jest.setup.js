@@ -5,4 +5,4 @@
 require('dotenv').config();
 
 // Mock global fetch method which normally is injected by webpack
-global.fetch = require('isomorphic-fetch');
+global.fetch = require('cross-fetch');

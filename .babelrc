@@ -1,9 +1,9 @@
 {
   "presets": [
-    ["es2015", {"modules": false, "loose": false}],
-    "stage-3",
+    ["babel-preset-env", {"modules": false, "loose": true}],
     "react"
   ],
+  "plugins": ["babel-plugin-transform-object-rest-spread"],
   "env": {
     "production": {
       "plugins": [
@@ -15,6 +15,12 @@
     },
     "test": {
       "plugins": ["transform-es2015-modules-commonjs"]
-    }
+    },
+    "node": {
+      "presets": [
+        ["babel-preset-env", {"modules": false, "loose": true, "targets": { "node": "current" }}],
+      ],
+      "plugins": ["babel-plugin-dynamic-import-node"],
+    },
   }
 }

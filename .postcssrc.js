@@ -6,7 +6,6 @@ function getPostCSSPlugins() {
     require('postcss-calc')(),
     require('postcss-color-function')(),
     require('postcss-custom-properties')(),
-    require('postcss-merge-rules')(),
     require('postcss-url')(),
     require('autoprefixer')(),
     require('postcss-reporter')(),

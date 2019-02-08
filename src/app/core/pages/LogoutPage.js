@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class LogoutPage extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
     // Build logout redirection url
     let logoutUrl = `${process.env.LOGOUT_URL}`;
 
@@ -16,7 +16,7 @@ class LogoutPage extends Component {
 
     // Redirect to logout url
     if (process.env.REDIRECT_ON_LOGOUT === 'true') {
-      this.props.document.location.href = logoutUrl;
+      this.props.documentLocation.href = logoutUrl;
     } else {
       console.log(`Loggin out to: ${logoutUrl}`);
     }
@@ -36,6 +36,13 @@ LogoutPage.propTypes = {
       continue: PropTypes.string,
     }),
   }),
+  documentLocation: PropTypes.shape({
+    href: PropTypes.string,
+  }),
+};
+
+LogoutPage.defaultProps = {
+  documentLocation: document.location,
 };
 
 export default LogoutPage;

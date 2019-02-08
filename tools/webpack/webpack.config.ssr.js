@@ -1,9 +1,7 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.config.base');
 const path = require('path');
 const PATHS = require('../paths');
-// const EmitAllPlugin = require('webpack-emit-all-plugin');
 
 // Extend Webpack base config with local settings
 module.exports = env => (

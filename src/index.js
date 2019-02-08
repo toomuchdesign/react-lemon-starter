@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './app/Root';
-import loadPolyfillsAndThen from './loadPolyfills';
+// import loadPolyfillsAndThen from './loadPolyfills';
 
-loadPolyfillsAndThen(() => {
-  const rootEl = document.getElementById('root');
+// loadPolyfillsAndThen(() => {
+// });
 
-  ReactDOM.hydrate(
-    <Root />,
-    rootEl,
-  );
-});
+const rootEl = document.getElementById('root');
+
+ReactDOM.hydrate(
+  <Root />,
+  rootEl,
+);

@@ -50,7 +50,7 @@ npm update && npm install
 Currently you can choose between:
 
 - **building** the application with `npm run build`
-- **serving** it in browser and watch for changes with `npm run serve` or `npm run serve:build`
+- **serving** it in browser and watch for changes with `npm run start` or `npm run start:build`
 - **build some nice webpack statistics** with `npm run stats:serve`. [Read more here](https://github.com/th0r/webpack-bundle-analyzer).
 
 Both `build` and `serve` command accept an optional `-- --env.extractcss` argument which enables **CSS extraction into a real file**.

@@ -16,23 +16,15 @@ module.exports = env => (
         path.join(PATHS.SRC, 'index.js'),
       ],
     },
-    plugins: [
-      // See: https://github.com/webpack/docs/wiki/list-of-plugins#commonschunkplugin
-      // https://medium.com/webpack/webpack-bits-getting-the-most-out-of-the-commonschunkplugin-ab389e5f318#.wykqe95tm
-      new webpack.optimize.CommonsChunkPlugin({
-        children: true,
-        async: true,
+    mode: 'production',
+    optimization: {
+      // https://webpack.js.org/plugins/split-chunks-plugin/#optimization-splitchunks
+      splitChunks: {
+        chunks: 'async',
         minChunks: 2,
-      }),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false,
-          drop_console: true,
-        },
-        mangle: {
-          except: ['import', 'require'],
-        },
-      }),
+      },
+    },
+    plugins: [
       new webpack.LoaderOptionsPlugin({
         minimize: true,
       }),

@@ -26,9 +26,9 @@ module.exports = (env) => {
       historyApiFallback: true,
       hot: true,
       inline: true,
-      stats: 'errors-only',
       host: customLocalHost,
       port: process.env.PORT,
+      clientLogLevel: 'info',
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),

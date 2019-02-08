@@ -5,7 +5,7 @@ const path = require('path');
 const PATHS = require('../paths');
 
 // Extend Webpack base config with local settings
-module.exports = env => (
+module.exports = (env = {}) => (
   merge.smart(webpackBaseConfig(env), {
     entry: {
       app: [

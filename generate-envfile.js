@@ -12,7 +12,7 @@ const commonEnvVars = {
   APP_NAME: 'APP',
   DEFAULT_LANGUAGE: 'en_GB',
   REDIRECT_ON_LOGOUT: 'true',
-  SKIP_AUTH_CHECK: 'false',
+  SKIP_AUTH_CHECK: 'true',
 };
 
 const specificEnvVars = {

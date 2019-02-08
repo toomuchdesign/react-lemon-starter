@@ -1,41 +1,41 @@
 // EXTEND WEBPACK CONFIGURATION TO WRITE CSS TO FILE
 // eslint-disable-next-line import/no-extraneous-dependencies
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = (env) => {
-  if (env === undefined || env.extractcss === undefined) {
-    return {};
-  }
+module.exports = (env = {}) => {
+  const devMode = process.env.NODE_ENV !== 'production' || env.target === 'server';
+  const targetServer = env.target === 'server';
 
   return {
     module: {
       rules: [
         {
           test: /\.css$/,
-          use: ExtractTextPlugin.extract({
-            allChunks: true,
-            fallback: 'style-loader',
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  sourceMap: true,
-                  modules: false,
-                  localIdentName: '[local]-[hash:base62:8]',
-                  import: false,
-                },
+          use: [
+            (devMode && targetServer === false) ? 'style-loader' : MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+                modules: false,
+                localIdentName: '[local]-[hash:base62:8]',
+                import: false,
               },
-              'postcss-loader',
-            ],
-          }),
+            },
+            'postcss-loader',
+          ],
         },
       ],
     },
     plugins: [
-      new ExtractTextPlugin({
-        filename: '[name]-[contenthash:base62:8].css',
-        allChunks: true,
-      }),
+      // new ExtractTextPlugin({
+      //   filename: '[name]-[contenthash:base62:8].css',
+      //   allChunks: true,
+      // }),
+      new MiniCssExtractPlugin({
+        filename: "[name]-[contenthash:base62:8].css'",
+        chunkFilename: "[id].css",
+      })
     ],
   };
 };

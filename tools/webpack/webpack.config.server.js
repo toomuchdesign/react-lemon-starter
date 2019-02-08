@@ -7,7 +7,7 @@ const customLocalHost = undefined;
 
 // Set up webpack dev server with hot reload stuff
 // and recall the proper webpack config (local/publish...)
-module.exports = (env) => {
+module.exports = (env = {}) => {
   const webpackConfigMode = env.mode || 'publish';
 
   // eslint-disable-next-line

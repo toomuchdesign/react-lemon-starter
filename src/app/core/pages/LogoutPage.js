@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 class LogoutPage extends Component {
 
   componentWillMount() {
+    if (!this.props.documentLocation) {
+      return;
+    }
+
     // Build logout redirection url
     let logoutUrl = `${process.env.LOGOUT_URL}`;
 
@@ -42,7 +46,7 @@ LogoutPage.propTypes = {
 };
 
 LogoutPage.defaultProps = {
-  documentLocation: document.location,
+  documentLocation: typeof window !== 'undefined' ? document.location : undefined,
 };
 
 export default LogoutPage;

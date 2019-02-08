@@ -1,9 +1,9 @@
 {
   "presets": [
-    ["babel-preset-env", {"modules": false, "loose": true}],
-    "react"
+    ["@babel/preset-env", {"modules": false, "loose": true}],
+    "@babel/react"
   ],
-  "plugins": ["babel-plugin-transform-object-rest-spread"],
+  "plugins": ["@babel/plugin-proposal-object-rest-spread"],
   "env": {
     "production": {
       "plugins": [
@@ -14,11 +14,13 @@
       "plugins": ["react-hot-loader/babel"]
     },
     "test": {
-      "plugins": ["transform-es2015-modules-commonjs"]
+      "presets": [
+        ["@babel/preset-env", {"modules": "cjs", "loose": true, "targets": { "node": "current" }}],
+      ]
     },
     "node": {
       "presets": [
-        ["babel-preset-env", {"modules": false, "loose": true, "targets": { "node": "current" }}],
+        ["@babel/preset-env", {"modules": false, "loose": true, "targets": { "node": "current" }}],
       ],
       "plugins": ["babel-plugin-dynamic-import-node"],
     },

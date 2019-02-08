@@ -1,9 +1,11 @@
 const DotenvPlugin = require('webpack-dotenv-plugin');
 const PATHS = require('../paths');
 const path = require('path');
+const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpackExtractCSSConfig = require('./webpack.config.extractcss');
 
-module.exports = (env) => {
+module.exports = (env = {}) => {
   const webpackBaseConfig = {
     output: {
       path: PATHS.BUILD,
@@ -68,15 +70,12 @@ module.exports = (env) => {
     resolve: {
       extensions: ['.js', '.jsx', '.json'],
     },
-    stats: 'verbose',
+    stats: 'errors-only',
   };
 
-  return webpackBaseConfig;
+  const config = merge.smartStrategy({
+    'module.rules.use': 'replace',
+  })(webpackBaseConfig, webpackExtractCSSConfig(env));
+
+  return config;
 };
-
-
-// module.exports = env => (
-//   merge.smartStrategy({
-//     'module.rules.use': 'replace',
-//   })(webpackBaseConfig, webpackExtractCSSConfig(env))
-// );

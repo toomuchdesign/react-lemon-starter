@@ -9,7 +9,7 @@ const PATHS = require('../paths');
 process.env.NODE_ENV = 'production';
 
 // Extend Webpack base config with publish settings
-module.exports = env => (
+module.exports = (env = {}) => (
   merge.smart(webpackBaseConfig(env), {
     entry: {
       app: [

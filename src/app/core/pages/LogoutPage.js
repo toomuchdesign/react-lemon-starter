@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 
 class LogoutPage extends Component {
 
-  componentWillMount() {
-    if (!this.props.documentLocation) {
-      return;
-    }
-
+  componentDidMount() {
     // Build logout redirection url
     let logoutUrl = `${process.env.LOGOUT_URL}`;
 

@@ -18,7 +18,7 @@ function LemonsPageComponent(props) {
       </h2>
     );
   } else {
-    salutation = null;
+    salutation = 'No user';
   }
 
   return (

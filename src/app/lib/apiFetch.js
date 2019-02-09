@@ -1,5 +1,5 @@
 import fetch from 'cross-fetch';
-import urlConstructor from 'url-constructor';
+import pathToRegexp from 'path-to-regexp';
 import store from '../store';
 import { getAuthData } from '../authData/selectors';
 
@@ -62,7 +62,8 @@ function apiFetch({ method = 'GET', url = '', params, payload, headers = {} }) {
    * Replace paramsstring placeholders
    */
   if (params) {
-    requestUrl = urlConstructor(requestUrl, params);
+    const toPath = pathToRegexp.compile(requestUrl);
+    requestUrl = toPath(params);
   }
 
   /**

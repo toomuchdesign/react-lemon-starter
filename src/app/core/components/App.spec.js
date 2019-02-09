@@ -33,6 +33,7 @@ describe('App container component', () => {
         authData={authDataMock}
         user={userMock}
         routes={routesMock}
+        fetchUser={() => {}}
       >
         <ChildComponent />
       </App>

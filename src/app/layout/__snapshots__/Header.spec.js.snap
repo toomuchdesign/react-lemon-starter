@@ -30,6 +30,7 @@ exports[`Header default output Should output with all attributes defined 1`] = `
       >
         <li
           className="Header-nav-item"
+          key="0"
         >
           <Link
             className="Header-nav-link"
@@ -49,6 +50,7 @@ exports[`Header default output Should output with all attributes defined 1`] = `
         </li>
         <li
           className="Header-nav-item"
+          key="1"
         >
           <Link
             className="Header-nav-link"

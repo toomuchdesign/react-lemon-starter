@@ -26,8 +26,8 @@ describe('AuthDataProvider component', () => {
       />
     );
 
-    wrapper.instance().componentDidMount();
-    expect(fetchAuthDataMock.mock.calls.length).toEqual(1);
+    wrapper.instance();
+    expect(fetchAuthDataMock).toHaveBeenCalledTimes(1);
   });
 
   it('Should display children only when "authData" props is a valid object', () => {

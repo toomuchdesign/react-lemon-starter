@@ -40,7 +40,7 @@ App.displayName = 'App';
 App.propTypes = {
   authData: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   children: PropTypes.node,
-  fetchUser: PropTypes.func,
+  fetchUser: PropTypes.func.isRequired,
   isUserFetched: PropTypes.bool,
 };
 

@@ -53,10 +53,10 @@ describe('apiFetch lib', () => {
 
   it('It should fetch an API with an optional payload', () => {
     nock(process.env.API_ENDPOINT)
-      .get(`/${mockedUrl}`)
+      .post(`/${mockedUrl}`)
       .reply(200, (uri, requestBody) => requestBody);
 
-    return apiFetch({ url: mockedUrl, payload: mockedPayload }).then((requestBody) => {
+    return apiFetch({ method: 'POST', url: mockedUrl, payload: mockedPayload }).then((requestBody) => {
       expect(requestBody).toEqual(mockedPayload);
     });
   });

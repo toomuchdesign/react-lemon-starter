@@ -24,3 +24,5 @@ supervisord.*
 !.jscsrc
 !.jshintrc
 !.postcssrc.js
+!.prettierrc
+!.prettierignore

@@ -12,7 +12,7 @@
     "node": true,
     "jest": true
   },
-  "extends": ["airbnb"],
+  "extends": ["airbnb", "prettier"],
   "rules": {
     "no-console": 0,
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.spec.jsx", "**/*.spec.js", "**/__mocks__/*.js", "**/__mocks__/*.jsx"]}],

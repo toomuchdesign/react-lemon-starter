@@ -1,0 +1,7 @@
+.git/
+.tmp/
+coverage/
+build*/
+lib/
+package.json
+package-lock.json

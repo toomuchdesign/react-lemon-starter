@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import authDataReducer, {stateName as authDataName} from '../authData';
+import authDataReducer, {stateName as authDataName} from '../authData/reducers';
 import userReducer, {stateName as userName} from '../user';
 import lemonsReducer, {stateName as lemonsName} from '../lemons';
 

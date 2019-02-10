@@ -14,6 +14,10 @@ import {isUserFetched} from './selectors';
  */
 class UserProviderComponent extends Component {
   componentDidMount() {
+    if (process.env.SKIP_AUTH_CHECK === 'true') {
+      return;
+    }
+
     if (this.props.isUserFetched) {
       return;
     }

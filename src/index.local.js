@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { hot } from 'react-hot-loader/root';
-import Root from './app/Root';
+import Root from './root';
 import loadPolyfillsAndThen from './loadPolyfills';
 
 loadPolyfillsAndThen(() => {

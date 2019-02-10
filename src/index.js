@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './app/Root';
+import Root from './root';
 // import loadPolyfillsAndThen from './loadPolyfills';
 
 // loadPolyfillsAndThen(() => {

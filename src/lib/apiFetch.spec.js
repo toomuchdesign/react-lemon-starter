@@ -1,5 +1,5 @@
-import mockedStore from 'app/store';
 import nock from 'nock';
+import mockedStore from '../store';
 import apiFetch from './apiFetch';
 
 afterEach(() => {
@@ -7,7 +7,7 @@ afterEach(() => {
 });
 
 // Mock store globally
-jest.mock('app/store');
+jest.mock('../store');
 
 // Fixtures
 const mockedUrl = 'mockedUrl';

@@ -14,43 +14,46 @@ module.exports = (env = {}) => {
     },
     mode: 'development',
     module: {
-      rules: [{
-        // JS LOADER
-        // Reference: https://github.com/babel/babel-loader
-        // Transpile .js files using babel-loader
-        test: /\.jsx?$/,
-        use: ['babel-loader'],
-        include: [
-          PATHS.SRC,
-        ],
-      }, {
-        // CSS/POSTCSS LOADER
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          // Reference: https://github.com/postcss/postcss-loader
-          'postcss-loader',
-        ],
-      }, {
-        // ASSET FONT LOADER (Inline)
-        // Reference: https://github.com/webpack/url-loader
-        // @TODO consider to process fonts as normal assets (see next loader)
-        test: /\.(ttf|eot|svg|woff(2)?)(?:.*)$/,
-        use: 'url-loader?limit=10000',
-        include: [
-          // Directly target inlinable font assets
-        ],
-      }, {
-        // ASSET IMAGE LOADER
-        // Reference: https://github.com/webpack/file-loader
-        // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
-        // Rename the file using the asset hash
-        // Pass along the updated reference to your code
-        // You can add here any file extension you want to get copied to your output
-        test: /\.(png|jpg|jpeg|gif|svg)$/,
-        use: 'file-loader?name=assets/images/[name].[hash].[ext]',
-      }],
+      rules: [
+        {
+          // JS LOADER
+          // Reference: https://github.com/babel/babel-loader
+          // Transpile .js files using babel-loader
+          test: /\.jsx?$/,
+          use: ['babel-loader'],
+          include: [PATHS.SRC],
+        },
+        {
+          // CSS/POSTCSS LOADER
+          test: /\.css$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            // Reference: https://github.com/postcss/postcss-loader
+            'postcss-loader',
+          ],
+        },
+        {
+          // ASSET FONT LOADER (Inline)
+          // Reference: https://github.com/webpack/url-loader
+          // @TODO consider to process fonts as normal assets (see next loader)
+          test: /\.(ttf|eot|svg|woff(2)?)(?:.*)$/,
+          use: 'url-loader?limit=10000',
+          include: [
+            // Directly target inlinable font assets
+          ],
+        },
+        {
+          // ASSET IMAGE LOADER
+          // Reference: https://github.com/webpack/file-loader
+          // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
+          // Rename the file using the asset hash
+          // Pass along the updated reference to your code
+          // You can add here any file extension you want to get copied to your output
+          test: /\.(png|jpg|jpeg|gif|svg)$/,
+          use: 'file-loader?name=assets/images/[name].[hash].[ext]',
+        },
+      ],
     },
     plugins: [
       // WEBPACK DOTENV PLUGIN

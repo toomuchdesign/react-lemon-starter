@@ -21,18 +21,18 @@ describe('User action creators', () => {
   it('fetchUser() should create a successful action to fetch user data', () => {
     nock(process.env.API_ENDPOINT)
       .get(`/users/${userId}`)
-      .reply(200, { data: userMock });
+      .reply(200, {data: userMock});
 
     const expectedActions = [
-      { type: types.REQUEST_USER, userId },
-      { type: types.RECEIVE_USER, success: true, userId, payload: userMock },
+      {type: types.REQUEST_USER, userId},
+      {type: types.RECEIVE_USER, success: true, userId, payload: userMock},
     ];
 
-    const store = mockStore({ user: {} });
+    const store = mockStore({user: {}});
 
-    return store.dispatch(actions.fetchUser(userId))
-      .then(() => { // return of async actions
-        expect(store.getActions()).toEqual(expectedActions);
-      });
+    return store.dispatch(actions.fetchUser(userId)).then(() => {
+      // return of async actions
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 });

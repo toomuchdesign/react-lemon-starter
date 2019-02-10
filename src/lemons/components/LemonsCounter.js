@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 export default class LemonsCounter extends Component {
@@ -6,7 +6,7 @@ export default class LemonsCounter extends Component {
     if (this.props.onTickFunction) {
       this.interval = setInterval(
         this.props.onTickFunction,
-        this.props.interval,
+        this.props.interval
       );
     }
   }

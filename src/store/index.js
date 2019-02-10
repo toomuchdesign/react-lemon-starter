@@ -1,10 +1,13 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import reducers from '../reducers';
 
 // Scroll to top when a "location change" action is fired
-const scrollToTopOnLocationChange = () => next => (action) => {
-  if (action.type === '@@router/LOCATION_CHANGE' && typeof window !== 'undefined') {
+const scrollToTopOnLocationChange = () => next => action => {
+  if (
+    action.type === '@@router/LOCATION_CHANGE' &&
+    typeof window !== 'undefined'
+  ) {
     // @IDEA Make a smooth scroll
     window.scrollTo(0, 0);
   }
@@ -26,23 +29,21 @@ if (typeof window !== 'undefined' && window.__PRELOADED_STATE__) {
  * https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
  */
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers = process.env.NODE_ENV !== 'production' && typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-  ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-  : compose;
+const composeEnhancers =
+  process.env.NODE_ENV !== 'production' &&
+  typeof window !== 'undefined' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : compose;
 /* eslint-enable */
 
 function makeStore() {
   return createStore(
     reducers,
     preloadedState,
-    composeEnhancers(
-      applyMiddleware(
-        scrollToTopOnLocationChange,
-        thunk,
-      ),
-    ),
+    composeEnhancers(applyMiddleware(scrollToTopOnLocationChange, thunk))
   );
 }
 
 export default makeStore();
-export { makeStore }
+export {makeStore};

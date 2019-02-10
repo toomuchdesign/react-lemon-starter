@@ -1,6 +1,6 @@
 import lemonListMock from './__mocks__/lemonList.json';
-import { getLemons } from './selectors';
-import { stateName } from './reducers';
+import {getLemons} from './selectors';
+import {stateName} from './reducers';
 
 // Fixtures
 const storeMock = {

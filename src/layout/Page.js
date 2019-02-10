@@ -12,13 +12,8 @@ export default function Page(props) {
       <Header />
       <div className="Page-inner">
         {React.Children.map(props.children, (child, index) => (
-          <div
-            key={`Page-item-${index}`}
-            className="Page-block"
-          >
-            <div className="Page-container">
-              {child}
-            </div>
+          <div key={`Page-item-${index}`} className="Page-block">
+            <div className="Page-container">{child}</div>
           </div>
         ))}
       </div>

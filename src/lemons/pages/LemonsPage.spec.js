@@ -1,9 +1,9 @@
 /* eslint comma-dangle: 0 */
 import React from 'react';
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 
 import LemonsCounter from '../components/LemonsCounter';
-import { LemonsPageComponent } from './LemonsPage';
+import {LemonsPageComponent} from './LemonsPage';
 import lemonListMock from '../__mocks__/lemonList.json';
 
 // Fixtures
@@ -41,7 +41,9 @@ describe('LemonsPageComponent container component', () => {
     ).find('h2');
 
     const expected = (
-      <strong>{userMock.first_name} {userMock.last_name}!</strong>
+      <strong>
+        {userMock.first_name} {userMock.last_name}!
+      </strong>
     );
 
     expect(title.contains(expected)).toEqual(true);

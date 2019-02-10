@@ -8,7 +8,4 @@ import Root from './root';
 
 const rootEl = document.getElementById('root');
 
-ReactDOM.hydrate(
-  <Root />,
-  rootEl,
-);
+ReactDOM.hydrate(<Root />, rootEl);

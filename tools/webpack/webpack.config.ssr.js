@@ -4,7 +4,7 @@ const path = require('path');
 const PATHS = require('../paths');
 
 // Extend Webpack base config with local settings
-module.exports = (env = {}) => (
+module.exports = (env = {}) =>
   merge.smart(webpackBaseConfig(env), {
     entry: path.join(PATHS.SERVER, 'index.js'),
     output: {
@@ -13,13 +13,14 @@ module.exports = (env = {}) => (
     },
     target: 'node',
     module: {
-      rules: [{
-        // JS LOADER
-        // Reference: https://github.com/babel/babel-loader
-        // Transpile .js files using babel-loader
-        test: /\.jsx?$/,
-        use: ['babel-loader'],
-      }],
+      rules: [
+        {
+          // JS LOADER
+          // Reference: https://github.com/babel/babel-loader
+          // Transpile .js files using babel-loader
+          test: /\.jsx?$/,
+          use: ['babel-loader'],
+        },
+      ],
     },
-  })
-);
+  });

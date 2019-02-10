@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-export default function Button({ button, children, size, className, ...props }) {
+export default function Button({button, children, size, className, ...props}) {
   const ButtonOrLink = button ? 'button' : 'a';
 
   const ButtonClasses = classNames({
@@ -12,10 +12,7 @@ export default function Button({ button, children, size, className, ...props }) 
   });
 
   return (
-    <ButtonOrLink
-      className={ButtonClasses}
-      {...props}
-    >
+    <ButtonOrLink className={ButtonClasses} {...props}>
       {children}
     </ButtonOrLink>
   );

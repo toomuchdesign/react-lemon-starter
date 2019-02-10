@@ -9,8 +9,10 @@ const API = {
         token,
       },
     })
-      .then(response => Object.assign({}, response, { token }))
-      .catch((error) => { throw error; });
+      .then(response => Object.assign({}, response, {token}))
+      .catch(error => {
+        throw error;
+      });
   },
 };
 

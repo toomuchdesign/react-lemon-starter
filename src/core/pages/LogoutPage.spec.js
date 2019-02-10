@@ -1,6 +1,6 @@
 /* eslint comma-dangle: 0 */
 import React from 'react';
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 
 import LogoutPage from './LogoutPage';
 
@@ -26,7 +26,9 @@ describe('LogoutPage component', () => {
     );
 
     let expectedLogoutUrl = `${process.env.LOGOUT_URL}`;
-    expectedLogoutUrl += `&continue=${encodeURIComponent(locationMock.query.continue)}`;
+    expectedLogoutUrl += `&continue=${encodeURIComponent(
+      locationMock.query.continue
+    )}`;
 
     const actualLogoutUrl = documentLocationMock.href;
     expect(expectedLogoutUrl).toEqual(actualLogoutUrl);

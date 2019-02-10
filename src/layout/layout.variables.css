@@ -1,45 +1,45 @@
 :root {
-  --page-global-bg-color:             transparent;
+  --page-global-bg-color: transparent;
 
-  --page-max-width:                     1280px;
-  --page-min-width:                     320px;
+  --page-max-width: 1280px;
+  --page-min-width: 320px;
 
-  --page-gutter:                        30px;
-  --page-gutter--md:                    60px;
-  --page-gutter--xl:                    90px;
+  --page-gutter: 30px;
+  --page-gutter--md: 60px;
+  --page-gutter--xl: 90px;
 
   /* =Gutter
 ----------------------------------------------- */
-  --global-gutter:                      50px;
-  --global-gutter--secondary:           25px;
+  --global-gutter: 50px;
+  --global-gutter--secondary: 25px;
 
   /* =Header
 ----------------------------------------------- */
-  --Header-height:                      60px;
-  --Header-logo-height:                 40px;
-  --Header-logo-width:                  40px;
+  --Header-height: 60px;
+  --Header-logo-height: 40px;
+  --Header-logo-width: 40px;
 
   /* =Footer
 ----------------------------------------------- */
-  --Footer-height:                      90px;
-  --Footer-content-height:              50px;
+  --Footer-height: 90px;
+  --Footer-content-height: 50px;
 
   /* =Media queries breakpoints
 ----------------------------------------------- */
-  --viewport--xxs:                      320px;
-  --viewport--xs:                       481px;
-  --viewport--sm:                       600px;
-  --viewport--md:                       768px;
-  --viewport--lg:                       980px;
-  --viewport--xl:                       1240px;
+  --viewport--xxs: 320px;
+  --viewport--xs: 481px;
+  --viewport--sm: 600px;
+  --viewport--md: 768px;
+  --viewport--lg: 980px;
+  --viewport--xl: 1240px;
 
   /* =Z-index's
 ----------------------------------------------- */
-  --zindex--modal:                      5000;
-  --zindex--overlay:                    4000;
-  --zindex--dropDown:                   3000;
-  --zindex--header:                     2000;
-  --zindex--footer:                     1000;
+  --zindex--modal: 5000;
+  --zindex--overlay: 4000;
+  --zindex--dropDown: 3000;
+  --zindex--header: 2000;
+  --zindex--footer: 1000;
 }
 
 /* =Media queries declarations

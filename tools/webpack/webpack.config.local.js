@@ -5,12 +5,10 @@ const path = require('path');
 const PATHS = require('../paths');
 
 // Extend Webpack base config with local settings
-module.exports = (env = {}) => (
+module.exports = (env = {}) =>
   merge.smart(webpackBaseConfig(env), {
     entry: {
-      app: [
-        path.join(PATHS.SRC, 'index.local.js'),
-      ],
+      app: [path.join(PATHS.SRC, 'index.local.js')],
     },
     plugins: [
       // Manually set "NODE_ENV" variable to "development"
@@ -18,5 +16,4 @@ module.exports = (env = {}) => (
         'process.env.NODE_ENV': JSON.stringify('development'),
       }),
     ],
-  })
-);
+  });

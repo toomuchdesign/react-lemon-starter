@@ -1,6 +1,6 @@
 // EXTEND WEBPACK CONFIGURATION TO WRITE CSS TO FILE
 // eslint-disable-next-line import/no-extraneous-dependencies
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env = {}) => {
   const devMode = process.env.NODE_ENV !== 'production';

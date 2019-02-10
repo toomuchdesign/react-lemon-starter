@@ -1,10 +1,10 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import {Route, Switch} from 'react-router';
 import routes from '../routes';
 import 'sanitize.css/sanitize.css';
 
-import { AuthDataProvider } from '../authData';
-import { UserProvider } from '../user';
+import {AuthDataProvider} from '../authData';
+import {UserProvider} from '../user';
 import Page from '../layout/Page';
 
 import LemonsPage from '../lemons/pages/LemonsPage';
@@ -20,10 +20,10 @@ function App() {
       <UserProvider>
         <Page>
           <Switch>
-            <Route exact path={routes.homepage.path} component={LemonsPage}/>
-            <Route exact path={routes.about.path} component={AboutPage}/>
-            <Route exact path={routes.logout.path} component={LogoutPage}/>
-            <Route component={NotFoundPage}/>
+            <Route exact path={routes.homepage.path} component={LemonsPage} />
+            <Route exact path={routes.about.path} component={AboutPage} />
+            <Route exact path={routes.logout.path} component={LogoutPage} />
+            <Route component={NotFoundPage} />
           </Switch>
         </Page>
       </UserProvider>

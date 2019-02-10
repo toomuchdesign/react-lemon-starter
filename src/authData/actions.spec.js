@@ -23,25 +23,25 @@ describe('AuthData action creators', () => {
       .reply(200, mockAuthResponseMock);
 
     const expectedActions = [
-      { type: types.REQUEST_AUTH, payload: mockToken },
+      {type: types.REQUEST_AUTH, payload: mockToken},
       {
         type: types.RECEIVE_AUTH,
         success: true,
-        payload: Object.assign({}, mockAuthResponseMock, { token: mockToken }),
+        payload: Object.assign({}, mockAuthResponseMock, {token: mockToken}),
       },
     ];
 
-    const store = mockStore({ authData: false });
+    const store = mockStore({authData: false});
 
-    return store.dispatch(actions.fetchAuth(mockToken))
-      .then(() => { // return of async actions
-        expect(store.getActions()).toEqual(expectedActions);
-      });
+    return store.dispatch(actions.fetchAuth(mockToken)).then(() => {
+      // return of async actions
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 
   it('fetchAuth() should create a failing actions when provided with falsy token', () => {
     const expectedActions = [
-      { type: types.REQUEST_AUTH, payload: false },
+      {type: types.REQUEST_AUTH, payload: false},
       {
         type: types.RECEIVE_AUTH,
         success: false,
@@ -49,7 +49,7 @@ describe('AuthData action creators', () => {
       },
     ];
 
-    const store = mockStore({ authData: false });
+    const store = mockStore({authData: false});
 
     store.dispatch(actions.fetchAuth(false));
     expect(store.getActions()).toEqual(expectedActions);

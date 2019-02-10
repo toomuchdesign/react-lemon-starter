@@ -1,19 +1,18 @@
-import { Component } from 'react';
+import {Component} from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 // Actions
 import UserActionCreators from './actions';
 
 // Selectors
-import { getAuthData } from '../authData/selectors';
-import { isUserFetched } from './selectors';
+import {getAuthData} from '../authData/selectors';
+import {isUserFetched} from './selectors';
 
 /**
  * This component is meant to provide user to the state
  */
 class UserProviderComponent extends Component {
-
   componentDidMount() {
     if (this.props.isUserFetched) {
       return;
@@ -50,7 +49,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 // Use named export for unconnected component (for tests)
-export { UserProviderComponent };
+export {UserProviderComponent};
 
 // Use default export for the connected component (for UserProvider)
-export default connect(mapStateToProps, mapDispatchToProps)(UserProviderComponent);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserProviderComponent);

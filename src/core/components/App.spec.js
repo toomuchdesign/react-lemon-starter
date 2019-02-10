@@ -1,8 +1,8 @@
 /* eslint comma-dangle: 0 */
 import React from 'react';
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 
-import { App } from './App';
+import {App} from './App';
 
 // Fixtures
 const authDataMock = {
@@ -16,13 +16,10 @@ const userMock = {
   avatar: {
     urls: {
       show: 'image',
-    }
-  }
+    },
+  },
 };
-const routesMock = [
-  {},
-  {},
-];
+const routesMock = [{}, {}];
 
 function ChildComponent() {}
 

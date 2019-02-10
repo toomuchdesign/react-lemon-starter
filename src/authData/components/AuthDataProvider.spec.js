@@ -1,8 +1,8 @@
 /* eslint comma-dangle: 0 */
 import React from 'react';
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 
-import { AuthDataProviderComponent } from './AuthDataProvider';
+import {AuthDataProviderComponent} from './AuthDataProvider';
 
 // Fixtures
 process.env.SKIP_AUTH_CHECK = 'false';
@@ -42,7 +42,7 @@ describe('AuthDataProvider component', () => {
 
     expect(wrapper.children().length).toEqual(0);
 
-    wrapper.setProps({ authData: authMock });
+    wrapper.setProps({authData: authMock});
     expect(wrapper.children().length).toEqual(1);
   });
 
@@ -55,7 +55,7 @@ describe('AuthDataProvider component', () => {
       />
     );
 
-    wrapper.setProps({ authData: false });
+    wrapper.setProps({authData: false});
     expect(routerMock.push.mock.calls.length).toEqual(1);
 
     const redirectUrl = routerMock.push.mock.calls[0][0].pathname;

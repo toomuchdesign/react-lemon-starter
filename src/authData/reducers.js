@@ -7,7 +7,6 @@ import types from './types';
  */
 const reducers = (state = null, action) => {
   switch (action.type) {
-
     case types.REQUEST_AUTH:
       return state;
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { getUser } from '../../user/selectors';
-import { getLemons } from '../selectors';
+import {connect} from 'react-redux';
+import {getUser} from '../../user/selectors';
+import {getLemons} from '../selectors';
 import LemonsActionCreators from '../actions';
 import LemonsCounter from '../components/LemonsCounter';
 
@@ -15,7 +15,10 @@ function LemonsPageComponent(props) {
   if (props.user) {
     salutation = (
       <h2>
-        Hi <strong>{props.user.first_name} {props.user.last_name}!</strong>
+        Hi{' '}
+        <strong>
+          {props.user.first_name} {props.user.last_name}!
+        </strong>
       </h2>
     );
   } else {
@@ -25,10 +28,7 @@ function LemonsPageComponent(props) {
   return (
     <div>
       {salutation}
-      <button
-        onClick={props.resetLemons}
-        role="button"
-      >
+      <button onClick={props.resetLemons} role="button">
         reset
       </button>
       <LemonsCounter
@@ -60,7 +60,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 // Use named export for unconnected component (for tests)
-export { LemonsPageComponent };
+export {LemonsPageComponent};
 
 // Use default export for the connected component (for app)
-export default connect(mapStateToProps, mapDispatchToProps)(LemonsPageComponent);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LemonsPageComponent);

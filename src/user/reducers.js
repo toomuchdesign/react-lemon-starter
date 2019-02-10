@@ -2,7 +2,6 @@ import types from './types';
 
 const reducer = (state = null, action) => {
   switch (action.type) {
-
     case types.RECEIVE_USER:
       if (action.success) {
         return action.payload;

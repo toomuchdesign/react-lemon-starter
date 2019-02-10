@@ -1,12 +1,12 @@
-import { Component } from 'react';
+import {Component} from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 
 // Actions
 import AuthActionCreators from '../actions';
 // Selectors
-import { getAuthData, isAuthDataFetched } from '../selectors';
+import {getAuthData, isAuthDataFetched} from '../selectors';
 
 class AuthDataProviderComponent extends Component {
   componentDidMount() {
@@ -45,19 +45,14 @@ class AuthDataProviderComponent extends Component {
   }
 
   render() {
-    return this.shouldDisplayChildren()
-      ? this.props.children || null
-      : null;
+    return this.shouldDisplayChildren() ? this.props.children || null : null;
   }
 }
 
 AuthDataProviderComponent.displayName = 'AuthDataProviderComponent';
 
 AuthDataProviderComponent.propTypes = {
-  authData: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object,
-  ]),
+  authData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   isAuthDataFetched: PropTypes.bool,
   children: PropTypes.node,
   fetchAuthData: PropTypes.func.isRequired,
@@ -80,9 +75,12 @@ const mapDispatchToProps = dispatch => ({
 });
 
 // Use named export for unconnected component (for tests)
-export { AuthDataProviderComponent };
+export {AuthDataProviderComponent};
 
 // Use default export for the connected component (for app)
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(AuthDataProviderComponent),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(AuthDataProviderComponent)
 );

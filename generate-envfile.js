@@ -1,10 +1,10 @@
 const fs = require('fs');
 
 /*
-* Available environments:
-* - dev
-* - prod
-*/
+ * Available environments:
+ * - dev
+ * - prod
+ */
 
 const currentEnvironment = process.argv[2] || 'prod';
 
@@ -28,20 +28,24 @@ const specificEnvVars = {
   },
 };
 
-const mergedEnvVars = Object.assign({}, commonEnvVars, specificEnvVars[currentEnvironment]);
+const mergedEnvVars = Object.assign(
+  {},
+  commonEnvVars,
+  specificEnvVars[currentEnvironment]
+);
 
 function convertEnvObjectToString(EnvObject) {
   const vars = EnvObject;
   // eslint-disable-next-line no-var
   var returnString = '';
 
-  Object.keys(vars).forEach((key) => {
+  Object.keys(vars).forEach(key => {
     returnString += `${key}=${vars[key]}\n`;
   });
   return returnString;
 }
 
-fs.writeFile('.env', convertEnvObjectToString(mergedEnvVars), (err) => {
+fs.writeFile('.env', convertEnvObjectToString(mergedEnvVars), err => {
   if (err) {
     return console.log(err);
   }

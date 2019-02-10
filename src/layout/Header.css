@@ -1,4 +1,4 @@
-@import "./layout.variables";
+@import './layout.variables';
 
 .Header {
   width: 100%;
@@ -27,9 +27,9 @@
     width: var(--Header-logo-width);
     overflow: hidden;
     float: left;
-    margin: calc( calc( var(--Header-height) - var(--Header-logo-height) ) / 2 ) 0;
+    margin: calc(calc(var(--Header-height) - var(--Header-logo-height)) / 2) 0;
 
-    >a {
+    > a {
       display: block;
     }
 
@@ -57,7 +57,7 @@
       line-height: var(--Header-height);
       text-decoration: none;
       color: #fff;
-      padding: .5em 1em;
+      padding: 0.5em 1em;
     }
   }
 }

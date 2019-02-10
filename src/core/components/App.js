@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 // Actions
 import UserActionCreators from '../../user/actions';
 
 // Selectors
-import { getAuthData } from '../../authData/selectors';
-import { isUserFetched } from '../../user/selectors';
+import {getAuthData} from '../../authData/selectors';
+import {isUserFetched} from '../../user/selectors';
 
 import Page from '../../layout/Page';
 
@@ -17,7 +17,6 @@ import Page from '../../layout/Page';
  * It provides a main wrapper layout
  */
 class App extends Component {
-
   componentDidMount() {
     if (this.props.isUserFetched) {
       return;
@@ -27,11 +26,7 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <Page>
-        {this.props.children}
-      </Page>
-    );
+    return <Page>{this.props.children}</Page>;
   }
 }
 
@@ -58,7 +53,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 // Use named export for unconnected component (for tests)
-export { App };
+export {App};
 
 // Use default export for the connected component (for app)
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

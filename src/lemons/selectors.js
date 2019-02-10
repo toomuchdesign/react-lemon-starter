@@ -1,4 +1,4 @@
-import { stateName } from './reducers';
+import {stateName} from './reducers';
 
 // Selector functions. State is the global state.
 

@@ -1,83 +1,86 @@
-@import "./layout.variables";
+@import './layout.variables';
 
 .Page {
-    margin: 0;
-    padding: 0;
-    background-color: var(--page-global-bg-color);
-    overflow: hidden;  /* Fix .Page-inner (1) undesidered behaviour */
+  margin: 0;
+  padding: 0;
+  background-color: var(--page-global-bg-color);
+  overflow: hidden; /* Fix .Page-inner (1) undesidered behaviour */
 
-    &-inner {
-        position: relative;
-        min-height: calc(75vh);
-        padding-bottom: var(--global-gutter);
+  &-inner {
+    position: relative;
+    min-height: calc(75vh);
+    padding-bottom: var(--global-gutter);
 
-        @media (--lg) {
-            /* Sticky footer with calc() */
-            min-height: calc( 100vh - calc( var(--Header-height) + var(--Footer-height) + 1px ) );
+    @media (--lg) {
+      /* Sticky footer with calc() */
+      min-height: calc(
+        100vh - calc(var(--Header-height) + var(--Footer-height) + 1px)
+      );
 
-            /*Fill Fixed header gap on large devices*/
-            margin-top: var(--Header-height); /* 1 */
-        }
-
-        /* Clearfix */
-        &:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+      /*Fill Fixed header gap on large devices*/
+      margin-top: var(--Header-height); /* 1 */
     }
 
-    &-block {
-        padding-top: var(--global-gutter--secondary);
-        padding-left: var(--page-gutter);
-        padding-right: var(--page-gutter);
+    /* Clearfix */
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
 
-        @media(--md) {
-            padding-left: var(--page-gutter--md);
-            padding-right: var(--page-gutter--md);
-        }
+  &-block {
+    padding-top: var(--global-gutter--secondary);
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
 
-        @media(--xl) {
-            padding-left: var(--page-gutter--xl);
-            padding-right: var(--page-gutter--xl);
-        }
-
-        /* Full-width container */
-        &--full > .Page-container { /* NOTE: grandparent selector needed */
-            max-width: none !important;
-        }
-
-        /* Override "Page-inner" lateral gutters */
-        &--noGutters {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-        }
-
-        /* Remove top gutter */
-        &--noTopGutter {
-            padding-top: 0;
-        }
-
-        &--largeTopGutter {
-            padding-top: 80px;
-        }
-
-        /* Clearfix */
-        &:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+    @media (--md) {
+      padding-left: var(--page-gutter--md);
+      padding-right: var(--page-gutter--md);
     }
 
-    &-container {
-        max-width: var(--page-max-width);
-        margin-left: auto;
-        margin-right: auto;
-
-        /* Keep minimum page width on collapse */
-        &--minWidth {
-            min-width: var(--page-max-width);
-        }
+    @media (--xl) {
+      padding-left: var(--page-gutter--xl);
+      padding-right: var(--page-gutter--xl);
     }
+
+    /* Full-width container */
+    &--full > .Page-container {
+      /* NOTE: grandparent selector needed */
+      max-width: none !important;
+    }
+
+    /* Override "Page-inner" lateral gutters */
+    &--noGutters {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    /* Remove top gutter */
+    &--noTopGutter {
+      padding-top: 0;
+    }
+
+    &--largeTopGutter {
+      padding-top: 80px;
+    }
+
+    /* Clearfix */
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+
+  &-container {
+    max-width: var(--page-max-width);
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Keep minimum page width on collapse */
+    &--minWidth {
+      min-width: var(--page-max-width);
+    }
+  }
 }

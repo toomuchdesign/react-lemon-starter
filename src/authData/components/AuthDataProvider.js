@@ -8,7 +8,7 @@ import AuthActionCreators from '../actions';
 // Selectors
 import { getAuthData, isAuthDataFetched } from '../selectors';
 
-class AuthDataProviderWrapper extends Component {
+class AuthDataProviderComponent extends Component {
   componentDidMount() {
     if (process.env.SKIP_AUTH_CHECK === 'true') {
       return;
@@ -51,9 +51,9 @@ class AuthDataProviderWrapper extends Component {
   }
 }
 
-AuthDataProviderWrapper.displayName = 'AuthDataProviderWrapper';
+AuthDataProviderComponent.displayName = 'AuthDataProviderComponent';
 
-AuthDataProviderWrapper.propTypes = {
+AuthDataProviderComponent.propTypes = {
   authData: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.object,
@@ -66,7 +66,7 @@ AuthDataProviderWrapper.propTypes = {
   }),
 };
 
-AuthDataProviderWrapper.defaultProps = {
+AuthDataProviderComponent.defaultProps = {
   isAuthDataFetched: false,
 };
 
@@ -80,9 +80,9 @@ const mapDispatchToProps = dispatch => ({
 });
 
 // Use named export for unconnected component (for tests)
-export { AuthDataProviderWrapper };
+export { AuthDataProviderComponent };
 
 // Use default export for the connected component (for app)
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(AuthDataProviderWrapper),
+  connect(mapStateToProps, mapDispatchToProps)(AuthDataProviderComponent),
 );

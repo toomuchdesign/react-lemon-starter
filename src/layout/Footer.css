@@ -1,7 +1,8 @@
 @import "./layout.variables";
 
 .Footer {
-  background: #111;
+  background: #2d3e50;
+  color: #fff;
   position: fixed;
   bottom: 0;
   width: 100%;

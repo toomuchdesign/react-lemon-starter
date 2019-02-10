@@ -2,7 +2,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { AuthDataProviderWrapper } from './AuthDataProvider';
+import { AuthDataProviderComponent } from './AuthDataProvider';
 
 // Fixtures
 process.env.SKIP_AUTH_CHECK = 'false';
@@ -20,7 +20,7 @@ beforeEach(() => {
 describe('AuthDataProvider component', () => {
   it('Should call "fetchAuthData" on mounting phase', () => {
     const wrapper = shallow(
-      <AuthDataProviderWrapper
+      <AuthDataProviderComponent
         authData={authMock}
         fetchAuthData={fetchAuthDataMock}
       />
@@ -32,12 +32,12 @@ describe('AuthDataProvider component', () => {
 
   it('Should display children only when "authData" props is a valid object', () => {
     const wrapper = shallow(
-      <AuthDataProviderWrapper
+      <AuthDataProviderComponent
         authData={null}
         fetchAuthData={fetchAuthDataMock}
       >
         <div>child</div>
-      </AuthDataProviderWrapper>
+      </AuthDataProviderComponent>
     );
 
     expect(wrapper.children().length).toEqual(0);
@@ -48,7 +48,7 @@ describe('AuthDataProvider component', () => {
 
   it('Should call router push to redirect to "logout" url when provided "authData is false"', () => {
     const wrapper = shallow(
-      <AuthDataProviderWrapper
+      <AuthDataProviderComponent
         authData={null}
         fetchAuthData={fetchAuthDataMock}
         router={routerMock}

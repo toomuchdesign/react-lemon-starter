@@ -9,6 +9,7 @@ import LemonsCounter from '../components/LemonsCounter';
 function LemonsPageComponent(props) {
   let salutation;
 
+  //@TODO remove it
   if (props.children) return props.children;
 
   if (props.user) {

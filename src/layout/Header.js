@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './Header.css';
 
 const headerMenuItems = [
-  [{ name: 'about', params: { foo: 'bar' } }, 'to about params'],
-  [{ name: 'about', query: { foo: 'bar' } }, 'to about query'],
+  [{ pathname: '/about/bar' }, 'to about params'],
+  [{ pathname: '/about', search: '?foo=bar' }, 'to about query'],
 ];
 
 export default function Header() {

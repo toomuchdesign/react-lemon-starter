@@ -2,6 +2,7 @@ const fs = require('fs');
 const PATHS = require('../tools/paths');
 const path = require('path');
 const React = require('react');
+import { StaticRouter } from 'react-router';
 const express = require('express');
 const cheerio = require('cheerio');
 const ReactDOMServer = require('react-dom/server');
@@ -37,8 +38,24 @@ function handleRender(req, res) {
   )
   .then(
     () => {
+      // Instantiate react-router static router:
+      // https://reacttraining.com/react-router/web/guides/server-rendering
+      const context = {};
+      const Router = (props) => (
+        <StaticRouter
+          location={req.url}
+          context={context}
+          {...props}
+        />
+      )
+
       // Inject prerendered markup and preloaded state into index.html file
-      const prerenderedHtml = ReactDOMServer.renderToString(<Root store={store} />);
+      const prerenderedHtml = ReactDOMServer.renderToString(
+        <Root
+          store={store}
+          router={Router}
+        />
+      );
       const preloadedState = store.getState();
       const preloadedStateScriptTag = `<script>
         // WARNING: See the following for security issues around embedding JSON in HTML:

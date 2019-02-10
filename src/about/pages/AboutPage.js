@@ -1,14 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 
-export default function AboutPage(props) {
+function AboutPageComponent(props) {
+  const foo = props.match.params && props.match.params.foo;
+
+  //@TODO implement querystring parser
   return (
     <div>
-      About: {props.params.foo === undefined ? 'Noo foo' : props.params.foo}
+      About: {foo === undefined ? 'Noo foo' : foo}
     </div>
   );
 }
 
-AboutPage.propTypes = {
-  params: PropTypes.objectOf(PropTypes.string),
+AboutPageComponent.propTypes = {
+  match: PropTypes.object.isRequired,
 };
+
+// Use named export for unconnected component (for tests)
+export { AboutPageComponent };
+
+// Use default export for the connected component (for UserProvider)
+export default withRouter(AboutPageComponent);
+

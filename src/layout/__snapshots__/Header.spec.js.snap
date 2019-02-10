@@ -11,8 +11,7 @@ exports[`Header default output Should output with all attributes defined 1`] = `
       className="Header-logo"
     >
       <Link
-        onlyActiveOnIndex={false}
-        style={Object {}}
+        replace={false}
         to="/"
       >
         <img
@@ -34,14 +33,10 @@ exports[`Header default output Should output with all attributes defined 1`] = `
         >
           <Link
             className="Header-nav-link"
-            onlyActiveOnIndex={false}
-            style={Object {}}
+            replace={false}
             to={
               Object {
-                "name": "about",
-                "params": Object {
-                  "foo": "bar",
-                },
+                "pathname": "/about/bar",
               }
             }
           >
@@ -54,14 +49,11 @@ exports[`Header default output Should output with all attributes defined 1`] = `
         >
           <Link
             className="Header-nav-link"
-            onlyActiveOnIndex={false}
-            style={Object {}}
+            replace={false}
             to={
               Object {
-                "name": "about",
-                "query": Object {
-                  "foo": "bar",
-                },
+                "pathname": "/about",
+                "search": "?foo=bar",
               }
             }
           >

@@ -1,67 +1,21 @@
-import React from 'react';
-import { Route } from 'react-router';
-
-import AuthDataProvider from '../authData/components/AuthDataProvider';
-import AppContainer from '../core/components/App';
-
-import LemonsPage from '../lemons/pages/LemonsPage';
-
-import AboutPage from '../about/pages/AboutPage';
-import NotFoundPage from '../core/pages/NotFoundPage';
-import LogoutPage from '../core/pages/LogoutPage';
-
 const siteTitle = 'React lemon starter';
-const routesObj = {
-  /*
-   * This is the main route which should contain all ather application routes.
-   * It provides a main wrapper layout + user authorization and user data retrieval
-   */
+const routes = {
   homepage: {
-    name: 'homepage',
     path: '/',
     title: `${siteTitle} - Welcome`,
-    component: props => (
-      <AuthDataProvider>
-        <AppContainer {...props}>
-          <LemonsPage {...props} />
-        </AppContainer>
-      </AuthDataProvider>
-    ),
   },
   about: {
-    name: 'about',
-    path: 'about-page(/:foo)',
+    path: '/about/:foo?',
     title: `${siteTitle} - About`,
-    component: AboutPage,
-    indexRoute: { component: AboutPage },
   },
-  // #Special route 1: redirect here when no matching route is found
   notFound: {
-    name: 'notFound',
-    path: '*',
+    path: '/not-found',
     title: `${siteTitle} - Page Not Found`,
-    component: NotFoundPage,
   },
-  // #Special route 2: it resides OUTSIDE the main route and handles user logout
   logout: {
-    name: 'logout',
     path: '/logout',
     title: `${siteTitle} - Logout`,
-    component: LogoutPage,
   },
 };
 
-// Export current routes config
-const getAppRoutes = () => (
-  <Route>
-    <Route {...routesObj.logout} />
-    <Route {...routesObj.homepage} >
-      <Route {...routesObj.about} />
-      <Route {...routesObj.notFound} />
-    </Route>
-  </Route>
-);
-
-const getAppRoutesObj = () => Object.assign({}, routesObj);
-
-export { getAppRoutes, getAppRoutesObj };
+export default routes;

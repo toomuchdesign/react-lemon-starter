@@ -32,7 +32,7 @@ http://ascii.co.uk/art/lemon
 
 ## Set up the project for the first time
 
-React lemon starter requires [NodeJS](https://nodejs.org) and [NPM](https://www.npmjs.com) installed on your machine.
+[React](https://www.interviewbit.com/react-interview-questions/) lemon starter requires [NodeJS](https://nodejs.org) and [NPM](https://www.npmjs.com) installed on your machine.
 
 ### If setting up the project on a server
 ```sh
